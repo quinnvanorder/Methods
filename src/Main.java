@@ -71,16 +71,35 @@ public class Main {
      */
 
     public static void displayHighScorePosition(String name,int position){
-        System.out.println(name + " managed to get into position " + position + " on the high score table!");
+        if (name == "Rainbow Dash"){
+            System.out.println(name + " managed to get into position " + position + " on the high score table, because she is the best at sports!");
+        }
+        else {
+            System.out.println(name + " managed to get into position " + position + " on the high score table!");
+        }
     }
 
     public static int calculateHighScorePosition(int score){
-        if (score > 1000)
+/*
+        if (score >= 1000)
             return 1;
-        if (score > 500 && score < 1000)
+        if (score >= 500)
             return 2;
-        if (score > 100 && score < 500)
+        if (score >= 100)
             return 3;
         return 4;
+
+        alternate path to avoid a ton of returns.
+ */
+        int position = 4;
+
+        if(score >= 1000)
+            position = 1;
+        if(score >= 500)
+            position = 2;
+        if(score >= 100)
+            position = 3;
+
+        return position;
     }
 }
